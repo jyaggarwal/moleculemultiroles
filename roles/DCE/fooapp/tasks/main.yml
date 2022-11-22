@@ -1,4 +1,4 @@
-- name: Install a list of packages (suitable replacement for 2.11 loop deprecation warning) for fooapp
+- name: Install a list of packages (suitable replacement for 2.11 loop deprecation warning) for fooapp role
   ansible.builtin.yum:
     name:
       - httpd
