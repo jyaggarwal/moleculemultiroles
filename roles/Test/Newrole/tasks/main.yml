@@ -20,4 +20,4 @@
     mode: 0644
     owner: root
     group: "{{ httpd_group }}"
-    content: "{{ web_content }}"
+    content: "{{ web_content }}" 
