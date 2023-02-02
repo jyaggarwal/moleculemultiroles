@@ -246,8 +246,8 @@
           (New-Object -TypeName System.Net.WebClient).DownloadFile($url, $file)
           powershell.exe -ExecutionPolicy ByPass -File $file -EnableCredSSP -Verbose
           $admin = [ADSI]("WinNT://./administrator, user")
-          $admin.SetPassword("{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET)' }}")
-          net user Administrator "{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET)' }}"
+          $admin.SetPassword("{{ lookup('env', 'VM_PASSWORD_RESET') }}")
+          net user Administrator "{{ lookup('env', 'VM_PASSWORD_RESET') }}"
           </powershell>
         platform_generated_tags:
           instance: "{{ item.name }}"
