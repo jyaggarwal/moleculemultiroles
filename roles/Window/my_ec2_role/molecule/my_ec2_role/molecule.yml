@@ -19,17 +19,17 @@ platforms:
 
       $admin = [ADSI]("WinNT://./administrator, user")
       #$admin.SetPassword("mole12345%")
-      $admin.SetPassword("{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET)' }}")
+      $admin.SetPassword("{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET') }}")
 
       #net user Administrator "mole12345%" 
-      net user Administrator "{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET)' }}"
+      net user Administrator "{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET') }}"
       </powershell>
     tags:
       Name: molecule_windows
     connection_options:
       sudo: true
       ansible_user: Administrator
-      ansible_password: "{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET)' }}"
+      ansible_password: "{{ lookup('ansible.builtin.env', 'VM_PASSWORD_RESET') }}"
       #ansible_password: "mole12345%"
       ansible_port: 5986
       ansible_connection: winrm
